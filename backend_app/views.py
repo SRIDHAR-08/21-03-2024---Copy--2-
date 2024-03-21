@@ -25,14 +25,23 @@ def delete_student(request,id):
     select_id.delete()
     return redirect('/view/')
 
-def update_page(request,id):
-    select_id = class_models.objects.get(id=id)
+# def update_page(request,id):
+#     select_id = class_models.objects.get(id = id)
+
+    
+#     context = {
+#         "update_student" : form_class(instance=select_id)
+#     }
+#     return render(request,'form.html',context)
+
+def update_page(request, id):
+    select_id = class_models.objects.get(id = id)
     view_form = form_class(request.POST,instance=select_id)
     if view_form.is_valid():
         view_form.save()
         return redirect('/view/')
-    
     context = {
-        "update_student" : form_class(instance=select_id)
-    }
-    return render(request,'form.html',context)
+        "product_form": form_class(instance=select_id)
+        }
+    return render(request, 'form.html', context)
+
