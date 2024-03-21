@@ -36,19 +36,3 @@ def update_page(request,id):
         "update_student" : form_class(instance=select_id)
     }
     return render(request,'form.html',context)
-
-def update_page(request, id):
-    instance = class_models.objects.get(id=id)  # Replace YourModel with your actual model class
-    if request.method == 'POST':
-        form = form_class(request.POST, instance=instance)  # Replace YourForm with your actual form class
-        if form.is_valid():
-            form.save()
-            return redirect('/view/')  # Redirect to the appropriate URL after saving
-    else:
-        form = form_class(instance=instance)  # Replace YourForm with your actual form class
-
-    context = {
-        'form': form,
-        'instance_id': id,
-    }
-    return render(request, 'form.html', context)
