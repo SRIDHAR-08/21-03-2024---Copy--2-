@@ -25,14 +25,14 @@ def delete_student(request,id):
     select_id.delete()
     return redirect('/view/')
 
-def update_page(request,id):
-    select_id = class_models.objects.get(id = id)
+# def update_page(request,id):
+#     select_id = class_models.objects.get(id = id)
 
     
-    context = {
-        "update_student" : form_class(instance=select_id)
-    }
-    return render(request,'form.html',context)
+#     context = {
+#         "update_student" : form_class(instance=select_id)
+#     }
+#     return render(request,'form.html',context)
 
 def update_page(request, id):
     select_id = class_models.objects.get(id = id)
